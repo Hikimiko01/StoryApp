@@ -31,6 +31,7 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel.isLoading.observe(this) {isLoading -> binding.loadingProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE }
         setupView()
         setupAction()
         playAnimation()
